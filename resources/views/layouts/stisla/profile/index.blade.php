@@ -38,6 +38,7 @@
                             </div>
                         </div>
                     </div>
+                    @if(Auth::check() && $user->id === Auth::user()->id)
                     <div class="profile-widget-description">
                         <div class="profile-widget-name">
                             {{ $user->name_private }} ({{ $user->ident }})
@@ -82,6 +83,7 @@
                             </a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
 
