@@ -93,6 +93,19 @@
                     </a>
                 </li>
             @endif
+			
+			@foreach($page_links as $page)
+                <li>
+                    <a class="nav-link" href="{{ url(route('frontend.pages.show', ['slug' => $page->slug])) }}">
+                        @if ($page['icon'])
+                            <i class="{{ $page['icon'] }}"></i>
+                        @else
+                            <i class="fas fa-scroll"></i>
+                        @endif
+                        <span>{{ $page['name'] }}</span>
+                    </a>
+                </li>
+            @endforeach
 
             <li class="menu-header">@lang('stisla.pilotadmin')</li>
             <li>
@@ -152,19 +165,6 @@
                     <a class="nav-link" href="{{ url($link['url']) }}">
                         <i class="{{ $link['icon'] }}"></i>
                         <span>{{ ($link['title']) }}</span>
-                    </a>
-                </li>
-                @endforeach
-
-                @foreach($page_links as $page)
-                <li>
-                    <a class="nav-link" href="{{ url(route('frontend.pages.show', ['slug' => $page->slug])) }}">
-                        @if ($page['icon'])
-                            <i class="{{ $page['icon'] }}"></i>
-                        @else
-                            <i class="fas fa-scroll"></i>
-                        @endif
-                        <span>{{ $page['name'] }}</span>
                     </a>
                 </li>
                 @endforeach
