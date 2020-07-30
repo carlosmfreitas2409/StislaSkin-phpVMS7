@@ -122,8 +122,12 @@
                             <div class="card-body">
                                 <div class="statistic-details">
                                     <div class="statistic-details-item">
+									@if ($user->current_airport != null)
                                         <div class="detail-value text-info">{{ $user->current_airport->icao }}</div>
-                                        <div class="detail-name">@lang('airports.current')</div>
+									@else
+										<div class="detail-value text-info">No curren't airport</div>
+									@endif
+									<div class="detail-name">@lang('airports.current')</div>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +139,11 @@
                             <div class="card-body">
                                 <div class="statistic-details">
                                     <div class="statistic-details-item">
+									@if ($user->home_airport != null)
                                         <div class="detail-value text-warning">{{ $user->home_airport->icao }}</div>
+									@else
+										<div class="detail-value text-warning">-</div>
+									@endif
                                         <div class="detail-name">@lang('airports.home')</div>
                                     </div>
                                 </div>
